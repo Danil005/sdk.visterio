@@ -1,0 +1,19 @@
+{
+    "name": "fiks/php-visterio",
+    "description": "PHP SDK for visterio",
+    "require": {
+        "php-curl-class/php-curl-class": "^8.6"
+    },
+    "authors": [
+        {
+            "name": "Danil Sidorenko",
+            "email": "danilsidorenk00@bk.ru"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Visterio": "src/"
+        }
+    },
+    "minimum-stability": "alpha"
+}

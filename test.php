@@ -12,9 +12,19 @@ $access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImUxNjY5NzNlNjY0YTV
 
 //$resp = $api->auth()->login(['email'=>'dsidorenko@sfedu.ru', 'password' => 'Danil005']);
 
-$resp = $api->departments()->setDirector($access_token, [
-    'department_id' => "5cf82bdc2441481918003547",
-    'director_id' => 1
+//$resp = $api->drivers()->create($access_token, [
+//    'department_id' => "5cf82bdc2441481918003547",
+//    'name' => "Danil",
+//    'surname' => "Sidorenko",
+//    'middle_name' => "Stanislavovich",
+//    'number_phone' => "+7 (918) 132-18-19",
+//    'create_account' => false,
+//    'licences' => ["A", "B"]
+//]);
+
+$resp = $api->cars()->setMechanic($access_token, [
+    'car_id' => '5cf91bef2441481918003556',
+    'driver_id' => '5cf904472441481918003551'
 ]);
 
 print_r($resp);

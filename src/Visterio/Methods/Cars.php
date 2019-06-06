@@ -31,7 +31,7 @@ class Cars
      */
     public function get(string $accessToken, array $params = [])
     {
-        return $this->getRequest()->get('cars.get', $accessToken);
+        return $this->request->get('cars.get', $accessToken, $params);
     }
 
     /**
@@ -41,6 +41,58 @@ class Cars
      */
     public function create(string $accessToken, array $params = [])
     {
-        return $this->getRequest()->put('cars.create', $accessToken, $params);
+        return $this->request->put('cars.create', $accessToken, $params);
     }
+
+    /**
+     * @param string $accessToken
+     * @param array $params
+     * @return mixed|null
+     */
+    public function view(string $accessToken, array $params = [])
+    {
+        return $this->request->get('cars.view', $accessToken, $params);
+    }
+
+    /**
+     * @param string $accessToken
+     * @param array $params
+     * @return mixed|null
+     */
+    public function edit(string $accessToken, array $params = [])
+    {
+        return $this->request->patch('cars.edit', $accessToken, $params);
+    }
+
+    /**
+     * @param string $accessToken
+     * @param array $params
+     * @return mixed|null
+     */
+    public function delete(string $accessToken, array $params = [])
+    {
+        return $this->request->delete('cars.delete', $accessToken, $params);
+    }
+
+    /**
+     * @param string $accessToken
+     * @param array $params
+     * @return mixed|null
+     */
+    public function restore(string $accessToken, array $params = [])
+    {
+        return $this->request->post('cars.restore', $accessToken, $params);
+    }
+
+    /**
+     * @param string $accessToken
+     * @param array $params
+     * @return mixed|null
+     */
+    public function setMechanic(string $accessToken, array $params = [])
+    {
+        return $this->request->post('cars.setMechanic', $accessToken, $params);
+    }
+
+
 }

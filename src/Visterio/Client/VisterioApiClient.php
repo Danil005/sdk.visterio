@@ -2,6 +2,7 @@
 
 namespace Visterio\Client;
 
+use Visterio\Methods\Drivers;
 use Visterio\Methods\Cars;
 use Visterio\Methods\Auth;
 use Visterio\Methods\Departments;
@@ -16,6 +17,7 @@ class VisterioApiClient
     private $auth;
     private $cars;
     private $departments;
+    private $drivers;
 
     /**
      * VisterioApiClient constructor.
@@ -66,5 +68,16 @@ class VisterioApiClient
             $this->departments = new Departments($this->request);
         }
         return $this->departments;
+    }
+
+    /**
+     * @return Drivers
+     */
+    public function drivers(): Drivers
+    {
+        if(!isset($this->drivers)) {
+            $this->drivers = new Drivers($this->request);
+        }
+        return $this->drivers;
     }
 }

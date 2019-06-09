@@ -2,6 +2,7 @@
 
 namespace Visterio\Client;
 
+use Visterio\Methods\Employers;
 use Visterio\Methods\Drivers;
 use Visterio\Methods\Cars;
 use Visterio\Methods\Auth;
@@ -18,6 +19,7 @@ class VisterioApiClient
     private $cars;
     private $departments;
     private $drivers;
+    private $employers;
 
     /**
      * VisterioApiClient constructor.
@@ -32,7 +34,7 @@ class VisterioApiClient
     /**
      * @return VisterioApiRequest
      */
-    public function getRequest(): VisterioApiRequest
+    protected function getRequest(): VisterioApiRequest
     {
         return $this->request;
     }
@@ -42,7 +44,7 @@ class VisterioApiClient
      */
     public function auth(): Auth
     {
-        if(!isset($this->auth)) {
+        if (!isset($this->auth)) {
             $this->auth = new Auth($this->request);
         }
         return $this->auth;
@@ -53,7 +55,7 @@ class VisterioApiClient
      */
     public function cars(): Cars
     {
-        if(!isset($this->cars)) {
+        if (!isset($this->cars)) {
             $this->cars = new Cars($this->request);
         }
         return $this->cars;
@@ -64,7 +66,7 @@ class VisterioApiClient
      */
     public function departments(): Departments
     {
-        if(!isset($this->departments)) {
+        if (!isset($this->departments)) {
             $this->departments = new Departments($this->request);
         }
         return $this->departments;
@@ -75,9 +77,21 @@ class VisterioApiClient
      */
     public function drivers(): Drivers
     {
-        if(!isset($this->drivers)) {
+        if (!isset($this->drivers)) {
             $this->drivers = new Drivers($this->request);
         }
         return $this->drivers;
     }
+
+    /**
+     * @return Employers
+     */
+    public function employers(): Employers
+    {
+        if (!isset($this->employers)) {
+            $this->employers = new Employers($this->request);
+        }
+        return $this->employers;
+    }
+
 }

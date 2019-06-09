@@ -22,9 +22,16 @@ $access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImUxNjY5NzNlNjY0YTV
 //    'licences' => ["A", "B"]
 //]);
 
-$resp = $api->cars()->setMechanic($access_token, [
-    'car_id' => '5cf91bef2441481918003556',
-    'driver_id' => '5cf904472441481918003551'
-]);
-
+//
+//$resp = $api->employers()->create($access_token, [
+//    'email' => 'dsq2@mail.ru',
+//    'password' => 'Danil005',
+//    'name' => 'Danil',
+//    'surname' => 'Sidorenko',
+//    'middle_name' => 'Stanislavovich',
+//    'department_id' => '5cf82bdc2441481918003547'
+//]);
+//
+//
+$api->
 print_r($resp);

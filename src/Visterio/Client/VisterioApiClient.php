@@ -7,6 +7,8 @@ use Visterio\Methods\Drivers;
 use Visterio\Methods\Cars;
 use Visterio\Methods\Auth;
 use Visterio\Methods\Departments;
+use Visterio\Methods\Payments;
+use Visterio\Methods\Waylists;
 
 class VisterioApiClient
 {
@@ -20,6 +22,8 @@ class VisterioApiClient
     private $departments;
     private $drivers;
     private $employers;
+    private $payments;
+    private $waylists;
 
     /**
      * VisterioApiClient constructor.
@@ -93,5 +97,28 @@ class VisterioApiClient
         }
         return $this->employers;
     }
+
+    /**
+     * @return Payments
+     */
+    public function payments(): Payments
+    {
+        if (!isset($this->payments)) {
+            $this->payments = new Payments($this->request);
+        }
+        return $this->payments;
+    }
+
+    /**
+     * @return Waylists
+     */
+    public function waylists(): Waylists
+    {
+        if (!isset($this->waylists)) {
+            $this->waylists = new Waylists($this->request);
+        }
+        return $this->waylists;
+    }
+
 
 }
